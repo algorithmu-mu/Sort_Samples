@@ -28,7 +28,8 @@ class MergeSortSample {
       //再帰的に配列を分割
       mergeSort(leftArr);
       mergeSort(rightArr);
-
+      
+      //要素の入れ替え
       merge(leftArr, rightArr, arr);
       printArray(arr);
       
