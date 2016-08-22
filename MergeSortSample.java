@@ -47,10 +47,10 @@ class MergeSortSample {
       //前半: 右配列の要素を全てチェックしたという条件
       //後半: 左配列の要素をまだ全てチェックしていない　且つ チェックしている要素において右右配列の要素の方が大きい場合
       if (rightCheckIndex >= rightArr.length || (leftCheckIndex < leftArr.length && leftArr[leftCheckIndex] < rightArr[rightCheckIndex])) {
+        
         //この条件は左配列の要素の方が小さいので、左配列の要素を挿入
         arr[leftCheckIndex + rightCheckIndex] = leftArr[leftCheckIndex];
-        //左配列の要素をチェック
-        leftCheckIndex++;
+        leftCheckIndex++; //左配列の要素をチェック
       } else {
         arr[leftCheckIndex + rightCheckIndex] = rightArr[rightCheckIndex];
         rightCheckIndex++;
