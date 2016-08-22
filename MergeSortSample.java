@@ -1,3 +1,13 @@
+/*
+
+マージソート
+
+計算量: O(Nlog(N))
+
+*/
+
+
+
 class MergeSortSample {
   public static void main(String[] args) {
     System.out.println("hoge");
