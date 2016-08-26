@@ -77,3 +77,70 @@ class MergeSortSample {
 
 
 }
+
+//ちょっと違う
+class Meee {
+  public static void main(String[] args) {
+    int[] arr = {3, 1, 6, 5};
+    printArr(arr);
+    mergeSort(arr);
+    printArr(arr);
+  }
+
+  public static void mergeSort(int[] arr) {
+
+    if (arr.length > 1) {
+      int leftCount = arr.length / 2;
+      int rightCount = arr.length - leftCount;
+
+      int[] leftArr = new int[leftCount];
+      int[] rightArr = new int[rightCount];
+
+      for (int i = 0; i < leftCount; i++) {
+        leftArr[i] = arr[i];
+      }
+      for (int i = 0; i < rightCount; i++) {
+        rightArr[i] = arr[i + leftCount];
+      }
+
+      mergeSort(leftArr);
+      mergeSort(rightArr);
+
+      merge(leftArr, rightArr, arr);
+      printArr(arr);
+    }
+
+  }
+
+  public static void merge(int[] leftArr, int[] rightArr, int[] arr) {
+    int i = 0;
+    int j = 0;
+
+    while (leftArr.length > i && rightArr.length > j) {
+      if (leftArr[i] > rightArr[j]) {
+        arr[i + j] = rightArr[j];
+        j++;
+      } else {
+        arr[i + j] = leftArr[i];
+        i++;
+      }
+    }
+
+    while (leftArr.length > i) {
+      arr[i + j] = leftArr[i];
+      i++;
+    }
+    while (rightArr.length > j) {
+      arr[i + j] = rightArr[j];
+      j++;
+    }
+  }
+
+  public static void printArr(int[] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      System.out.print(" " + arr[i]);
+    }
+    System.out.println();
+  }
+}
+
